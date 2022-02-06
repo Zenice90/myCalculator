@@ -1,32 +1,37 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="app.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./app.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Javascript två, Miniräknare</title>
   </head>
   <body>
-    <section>
-      <div class="container">
-        <div id="display"></div>
-        <div class="buttons">
-          <div class="button">1</div>
-          <div class="button">2</div>
-          <div class="button">3</div>
-          <div class="button">C</div>
-          <div class="button">4</div>
-          <div class="button">5</div>
-          <div class="button">6</div>
-          <div class="button">+</div>
-          <div class="button">7</div>
-          <div class="button">8</div>
-          <div class="button">9</div>
-          <div class="button">-</div>
-          <div id="equal" class="button">=</div>
+    <main>
+      <div id="Container">
+        <p>Skriv dina tal här</p>
+        <form id="form">
+          <input type="text" id="input" />
+          <br />
+          <br />
+          <button class="buttens" id="plus">+</button>
+          <button class="buttens" id="minus">-</button>
+          <button class="buttens" id="summa">=</button>
+        </form>
+        <br />
+        <div class="resultatet">
+          <p>Uträkning:</p>
+          <p class="calculate" id="calc"></p>
+        </div>
+
+        <div class="resultatet">
+          <p>Resultat:</p>
+          <p class="result" id="resultat"></p>
         </div>
       </div>
-    </section>
-    <script src="app.js"></script>
+    </main>
+    <script src="./app.js"></script>
   </body>
 </html>

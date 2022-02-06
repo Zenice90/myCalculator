@@ -1,28 +1,49 @@
-let display = document.getElementById("display"); //Hämtar ID display i html
+let total = []; //Spara totalen
 
-let buttons = Array.from(document.getElementsByClassName("button")); //Hämtar alla class "button". ovandla till array.
+$("#form").on("submit", (e) => {
+  e.preventDefault(); //Återställer form till standard (tom)
+});
+//Uträkning, läggs i VARen array
+const array = (nummer) => {
+  let calculate = $("#input").val(); //var, hämtar input värde med .val
+  if (calculate !== "") {
+    $("#input").val("");
+    $("#resultat").text("");
 
-buttons.map((button) => {
-  button.addEventListener("click", (e) => {
-    switch (e.target.innerText) {
-      case "C":
-        display.innerText = ""; //Sätter Att C "clearar" alla tidigare uträkningar.
-        break;
-      case "=":
-        try {
-          display.innerText = eval(display.innerText);
-        } catch {
-          display.innerText = "Error"; // Om man matar in matimatiska fel: 1+*2, 2+-1...
-        }
-        break;
-      default:
-        display.innerText += e.target.innerText; //all tryckt text hamnar i display. (+=) används så flera kan läggas till.
+    if ($("#calc").text() === "") {
+      $("#calc").text(calculate);
+      total.push(calculate);
+    } else {
+      $("#calc").append(nummer + calculate);
+      total.push(nummer, calculate);
     }
+  }
+};
 
-    //För extra koll
-    /*   console.log("clicked"); 
-    console.log(e); //Event
-    console.log(e.target); //event target. känns att div klass tex 3 är den tryckta.
-    console.log(e.target.innerText); //Returnar värdet inom traget. tex 3. */
-  });
+$("#plus").on("click", () => {
+  //Lägger till "+" vid tryck
+  array("+");
+});
+
+$("#minus").on("click", () => {
+  // -//- "-" vid tryck
+  array("-");
+});
+
+const Totalen = () => {
+  if (total.length >= 3) {
+    $("#calc").text("");
+
+    let summan = "";
+    for (let i = 0; i < total.length; i++) {
+      summan += total[i];
+    }
+    let sum = eval(summan);
+    $("#resultat").text(sum);
+
+    total = [];
+  }
+};
+$("#summa").on("click", () => {
+  Totalen();
 });
