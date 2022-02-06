@@ -1,0 +1,35 @@
+.container {
+  max-width: 500px;
+  margin: 10 vh auto 0 auto;
+  border: 1px solid black;
+}
+#display {
+  text-align: right;
+  height: 70px;
+  line-height: 70px;
+  padding: 16px 8px;
+  font-size: 25px;
+  background-color: lightcoral;
+}
+.buttons {
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: beige;
+}
+.button {
+  border: 0.5px solid red;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+#equal {
+  background-color: lightblue;
+  color: black;
+}
+.button:hover {
+  background-color: gray;
+  color: white;
+  transition: 0.5s ease-in-out;
+}
